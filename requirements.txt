@@ -1,0 +1,27 @@
+# Core AI/LLM SDKs ------------------------------------------------------------
+openai==1.51.0
+anthropic==0.34.2
+
+# Agent / orchestration frameworks --------------------------------------------
+langchain==0.3.1
+langchain-openai==0.2.0
+langchain-anthropic==0.2.1
+langgraph==0.2.28
+llama-index-core==0.11.14
+
+# Embeddings / local ML stack -------------------------------------------------
+sentence-transformers==3.1.1
+transformers==4.45.0
+torch==2.4.1
+
+# RAG + vector store ----------------------------------------------------------
+pgvector==0.3.3
+psycopg[binary]==3.2.2
+
+# Guardrails ------------------------------------------------------------------
+nemoguardrails==0.10.1
+
+# Web / serving ---------------------------------------------------------------
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pydantic==2.9.2

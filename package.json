@@ -1,0 +1,24 @@
+{
+  "name": "ai-inventory-project",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Frontend / Node.js companion for the AI-augmented customer-support assistant fixture.",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "ai:review": "aider --model gpt-4o-mini src/index.ts"
+  },
+  "dependencies": {
+    "openai": "^4.65.0",
+    "@anthropic-ai/sdk": "^0.27.3",
+    "@langchain/openai": "^0.3.0",
+    "@langchain/anthropic": "^0.3.1",
+    "@google/generative-ai": "^0.21.0",
+    "langchain": "^0.3.2",
+    "llamaindex": "^0.6.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "@types/node": "^20.16.5"
+  }
+}
