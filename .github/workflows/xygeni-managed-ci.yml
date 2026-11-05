@@ -7,7 +7,7 @@ on:
       scanners:
         description: Scanners (comma-separated)
         required: false
-        default: 'misconf'
+        default: 'malware'
   # no pull request triggers
   # no schedule triggers
 
@@ -41,7 +41,7 @@ jobs:
           # XYGENI_MANAGED_CI_TOKEN and XYGENI_MANAGED_CI_URL: secrets of this repository, written by Xygeni
           XYGENI_TOKEN: ${{ secrets.XYGENI_MANAGED_CI_TOKEN }}
           XYGENI_URL: ${{ secrets.XYGENI_MANAGED_CI_URL }}
-          XYGENI_SCANNERS: ${{ github.event.inputs.scanners || 'misconf' }}
+          XYGENI_SCANNERS: ${{ github.event.inputs.scanners || 'malware' }}
           XYGENI_FAIL_ON: 'none'
           XYGENI_INCREMENTAL: 'false'
           XYGENI_PULL_REQUEST: ${{ github.event_name == 'pull_request' }}
