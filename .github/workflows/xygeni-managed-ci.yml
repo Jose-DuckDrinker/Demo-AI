@@ -8,7 +8,9 @@ on:
         description: Scanners (comma-separated)
         required: false
         default: 'secrets'
-  # no pull request triggers
+  pull_request:
+    branches:
+      - 'main'
   schedule:
     - cron: '5 12 * * *'
 
@@ -43,8 +45,8 @@ jobs:
           XYGENI_TOKEN: ${{ secrets.XYGENI_MANAGED_CI_TOKEN }}
           XYGENI_URL: ${{ secrets.XYGENI_MANAGED_CI_URL }}
           XYGENI_SCANNERS: ${{ github.event.inputs.scanners || 'secrets' }}
-          XYGENI_FAIL_ON: 'none'
-          XYGENI_INCREMENTAL: 'false'
+          XYGENI_FAIL_ON: 'guardrails'
+          XYGENI_INCREMENTAL: 'true'
           XYGENI_PULL_REQUEST: ${{ github.event_name == 'pull_request' }}
           XYGENI_PULL_REQUEST_SOURCE: ${{ github.head_ref }}
           XYGENI_PULL_REQUEST_BASE: ${{ github.event.pull_request.base.sha }}
