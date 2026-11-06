@@ -8,8 +8,11 @@ on:
         description: Scanners (comma-separated)
         required: false
         default: 'secrets,sast,deps,iac,misconf,malware,codetamper,apisec,ai,quality,compliance,inventory,suspectdeps'
-  # no pull request triggers
-  # no schedule triggers
+  pull_request:
+    branches:
+      - 'main'
+  schedule:
+    - cron: '0 3 * * *'
 
 # the scan reads the code and, when pull requests are not blocked, comments on them
 permissions:
@@ -42,8 +45,8 @@ jobs:
           XYGENI_TOKEN: ${{ secrets.XYGENI_MANAGED_CI_TOKEN }}
           XYGENI_URL: ${{ secrets.XYGENI_MANAGED_CI_URL }}
           XYGENI_SCANNERS: ${{ github.event.inputs.scanners || 'secrets,sast,deps,iac,misconf,malware,codetamper,apisec,ai,quality,compliance,inventory,suspectdeps' }}
-          XYGENI_FAIL_ON: 'none'
-          XYGENI_INCREMENTAL: 'false'
+          XYGENI_FAIL_ON: 'guardrails'
+          XYGENI_INCREMENTAL: 'true'
           XYGENI_PULL_REQUEST: ${{ github.event_name == 'pull_request' }}
           XYGENI_PULL_REQUEST_SOURCE: ${{ github.head_ref }}
           XYGENI_PULL_REQUEST_BASE: ${{ github.event.pull_request.base.sha }}
