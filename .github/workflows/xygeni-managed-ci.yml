@@ -11,7 +11,8 @@ on:
   pull_request:
     branches:
       - 'main'
-  # no schedule triggers
+  schedule:
+    - cron: '0 3 * * *'
 
 # the scan reads the code and, when pull requests are not blocked, comments on them
 permissions:
